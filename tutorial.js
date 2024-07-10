@@ -10,7 +10,6 @@ const pool = new pg.Pool({
 });
 
 var result = "No data";
-
 const getData = async () => {
 try {
     result = await pool.query('select first_name, last_name, primary_email from "NCPilotDB".subscribers where last_name = \'Simpson\';');
