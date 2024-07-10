@@ -1,5 +1,5 @@
 import pg from "pg";
-import http from "http";
+import https from "http";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -26,7 +26,7 @@ catch(error){
 
 getData();
 
-var data = http.createServer(function (req, res) {
+var data = https.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end(JSON.stringify(result.rows));
 }).listen(8080);
