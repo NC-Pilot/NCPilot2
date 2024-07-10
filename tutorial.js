@@ -1,12 +1,15 @@
 import pg from "pg";
 import http from "http";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const pool = new pg.Pool({
     host: "localhost",
     port: 5432,
     database: "NCPilot",
     user: "postgres",
-    password: "NC1234"
+    password: process.env.PASSWORD
 });
 
 var result = "No data";
