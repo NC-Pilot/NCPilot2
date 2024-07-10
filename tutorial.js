@@ -1,5 +1,5 @@
 import pg from "pg";
-import https from "http";
+import https2 from "https";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -20,8 +20,15 @@ const getData = async () => {
 
 getData();
 
-var data = https.createServer(function (req, res) {
+const options = {};
+  
+  https2.createServer(options, (req, res) => {
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end(JSON.stringify(result.rows));
-}).listen(8080);
+  }).listen(8080);
+
+// var data = https.createServer(function (req, res) {
+//     res.writeHead(200, {'Content-Type': 'text/plain'});
+//     res.end(JSON.stringify(result.rows));
+// }).listen(8080);
     
